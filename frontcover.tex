@@ -1,0 +1,60 @@
+\begingroup
+
+\TPGrid{3}{36}
+\textblockorigin{0mm}{0mm}
+\setlength{\parindent}{0mm}
+\setlength{\banderougewidth}{2\TPHorizModule}
+\setlength{\banderougeheight}{\TPVertModule}
+\setlength{\bandeorwidth}{\TPHorizModule}
+\setlength{\bandeorheight}{\banderougeheight}
+\setlength{\imageheight}{29\TPVertModule}
+\setlength{\imagewidth}{3\TPHorizModule}
+\setlength{\logoheight}{2.5\TPVertModule}
+\setlength{\gapwidth}{0.75pt}
+\addtolength{\bandeorwidth}{-\gapwidth}
+\addtolength{\imageheight}{-\gapwidth}
+
+\begin{frame}[plain]
+  %% UL banner
+  \begin{textblock*}{3\TPHorizModule}[0,1](0mm,30\TPVertModule)
+    \textcolor{rouge}{\rule{\banderougewidth}{\banderougeheight}}% % red stripe
+    \rule{\gapwidth}{0pt}%                                         % gap
+    \textcolor{or}{\rule{\bandeorwidth}{\bandeorheight}}           % gold stripe
+  \end{textblock*}
+
+  %% UL logo
+  \begin{textblock*}{\TPHorizModule}(2\TPHorizModule,31\TPVertModule)
+    \rule{\gapwidth}{0pt}%                                     % gap
+    \includegraphics[height=\logoheight,keepaspectratio=true]{ul_p}
+  \end{textblock*}
+
+  %% background image
+  \begin{textblock*}{3\TPHorizModule}(0mm,0mm)
+    \includegraphics[height=\imageheight,width=\imagewidth]{Fotolia_99831160.jpg}
+  \end{textblock*}
+
+  %% title
+  \begin{textblock*}{2.6\TPHorizModule}(0.2\TPHorizModule,3\TPVertModule)
+    \raggedright%
+    \bfseries
+    \fontsize{22}{22}\selectfont
+    Computational actuarial science with R \\
+    \mdseries
+    \fontsize{12}{13}\selectfont
+    Workshop of the 21\textsuperscript{st} International Congress on
+    Insurance: \\ Mathematics and Economics -- IME 2017
+  \end{textblock*}
+
+  %% date
+  \begin{textblock*}{2\TPHorizModule}(0.2\TPHorizModule,26\TPVertModule)
+    \fontsize{10}{12}\selectfont
+    July 6-7, 2017
+  \end{textblock*}
+\end{frame}
+\endgroup
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "ime-2017-workshop-computational-actuarial-science-r"
+%%% End:

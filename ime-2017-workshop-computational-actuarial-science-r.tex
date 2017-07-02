@@ -1,0 +1,178 @@
+%%% Copyright (C) 2017 Vincent Goulet
+%%%
+%%% This file and all files included or input by this one (and
+%%% recursively) are part of the project "Computational actuarial
+%%% science with R - IME 2017 Workshop"
+%%% http://github.com/vigou3/ime-2017-workshop-computational-actuarial-science-r
+%%%
+%%% This work is licensed under a Creative Commons
+%%% Attribution-ShareAlike 4.0 International License.
+%%% http://creativecommons.org/licenses/by-sa/4.0/
+
+\documentclass[aspectratio=1610,10pt,xcolor=x11names]{beamer}
+  \usepackage[noae]{Sweave}
+  \usepackage[round]{natbib}             % references
+  \usepackage{fontawesome}               % various icons
+  \usepackage{changepage}                % license page
+  \usepackage{listings}                  % source code
+  \usepackage{tabularx}                  % license page
+  \usepackage{framed}                    % env. leftbar
+  \usepackage[overlay,absolute]{textpos} % covers
+  \usepackage{metalogo}                  % logo \XeLaTeX
+
+  %% ==================
+  %%  Publication info
+  %% ==================
+  \renewcommand{\year}{2017}
+
+  %% ===============================
+  %%  Look and feel of the document
+  %% ===============================
+
+  %% Beamer theme
+  \usetheme{metropolis}
+
+  %% Math in sans serif font
+  \usepackage[frenchmath,scaled=1.15]{newtxsf}
+
+  %% Additionnal colors
+  \definecolor{comments}{rgb}{0.7,0,0}      % comments in R code
+  \definecolor{link}{rgb}{0,0.4,0.6}        % internal links
+  \definecolor{url}{rgb}{0.6,0,0}           % external links
+  \definecolor{codebg}{named}{LightYellow1} % R code background
+  \definecolor{rouge}{rgb}{0.85,0,0.07}     % UL red stripe
+  \definecolor{or}{rgb}{1,0.8,0}            % UL yellow stripe
+  \colorlet{alert}{mLightBrown} % alias for Metropolis color
+  \colorlet{dark}{mDarkTeal}    % alias for Metropolis color
+
+  %% Hyperlinks
+  \hypersetup{%
+    pdfauthor = {Vincent Goulet},
+    pdftitle = {Computational actuarial science with R},
+    colorlinks = {true},
+    linktocpage = {true},
+    allcolors = {link},
+    urlcolor = {url},
+    pdfpagemode = {UseOutlines},
+    pdfstartview = {Fit},
+    bookmarksopen = {true},
+    bookmarksnumbered = {true},
+    bookmarksdepth = {subsection}}
+
+  %% Source code blocks
+  \lstloadlanguages{R}
+  \lstset{language=R,
+    extendedchars=true,
+    basicstyle=\small\ttfamily\NoAutoSpacing,
+    commentstyle=\color{comments}\slshape,
+    keywordstyle=\mdseries,
+    escapeinside=`',
+    aboveskip=0pt,
+    belowskip=0pt,
+    showstringspaces=false}
+
+  %% Bibliography
+  %% Couple of hacks needed to have beamer and natbib play nice with
+  %% each other.
+  \renewcommand{\newblock}{}    % https://tex.stackexchange.com/a/1971/24355
+  \renewcommand{\bibsection}{}  % drop \section heading
+  \bibliographystyle{abbrvnat}
+
+  %% ===============================
+  %%  New commands and environments
+  %% ===============================
+
+  %% Sweave environments Sinput and Soutput use Verbatim (from
+  %% fancyvrb). They are redefined to remove the default configuration
+  %% of Sweave and we reduce spacing between the Sinput and Soutput
+  %% blocks.
+  \DefineVerbatimEnvironment{Sinput}{Verbatim}{}
+  \DefineVerbatimEnvironment{Soutput}{Verbatim}{}
+  \fvset{fontsize=\small,listparameters={\setlength{\topsep}{0pt}}}
+
+  %% Environment Schunk completely redefined as an hybrid between
+  %% environments snugshade* and leftbar of framed.
+  \makeatletter
+  \renewenvironment{Schunk}{%
+    \def\FrameCommand##1{\hskip\@totalleftmargin
+      \vrule width 3pt\colorbox{codebg}{\hspace{5pt}##1}%
+      % There is no \@totalrightmargin, so:
+      \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+    \MakeFramed {\advance\hsize-\width
+      \@totalleftmargin\z@ \linewidth\hsize
+      \advance\labelsep\fboxsep
+      \@setminipage}%
+  }{\par\unskip\@minipagefalse\endMakeFramed}
+  \makeatother
+
+  %% Function names, code, arguments et al.
+  \newcommand{\file}[1]{\fbox{\texttt{#1}}}
+  \newcommand{\class}[1]{\textbf{#1}}
+  \newcommand{\pkg}[1]{\textbf{#1}}
+  \newcommand{\link}[2]{\href{#1}{#2~\raisebox{-0.2ex}{\faExternalLink}}}
+  \newcommand{\meta}[1]{\ensuremath\langle{\normalfont\itshape #1\/}\ensuremath\rangle}
+
+  %% Link to GitHub on copyright page
+  \newcommand{\viewsource}[1]{%
+    \href{#1}{%
+      \makebox[2.5mm]{\raisebox{-1pt}{\footnotesize\faGithub}}\;%
+      {View on GitHub}}}
+
+  %% Link to R scripts
+  \newcommand{\gotoR}[1]{%
+    \begin{center}
+      \colorbox{mDarkTeal}{\color{white}
+      \makebox[40mm][c]{%
+        \makebox[5mm]{\raisebox{-1pt}{\large\faChevronCircleDown}}\;%
+        {\ttfamily #1}}}
+    \end{center}}
+
+  %% Context-specific commands
+  \newcommand{\esp}[1]{E [ #1 ]}
+  \newcommand{\VaR}{\ensuremath{\text{VaR}}}
+  \newcommand{\TVaR}{\ensuremath{\text{TVaR}}}
+  \newcommand{\feu}{{[\text{F}]}}
+  \newcommand{\eau}{{[\text{W}]}}
+  \newcommand{\bris}{{[\text{A}]}}
+  \newcommand{\DOT}{{[\ast]}}
+
+  %%% =======
+  %%%  Varia
+  %%% =======
+
+  %% Lengths to compose front and rear covers.
+  \newlength{\banderougewidth} \newlength{\banderougeheight}
+  \newlength{\bandeorwidth}    \newlength{\bandeorheight}
+  \newlength{\imageheight}     \newlength{\imagewidth}
+  \newlength{\logoheight}
+  \newlength{\gapwidth}
+
+%  \includeonly{licence}
+
+\begin{document}
+
+%% frontmatter
+\include{frontcover}
+\include{frontispice}
+\include{licence}
+
+%% mainmatter
+% \include{presentation}
+% \include{bases}
+% \include{donnees}
+% \include{application}
+% \include{controle}
+% \include{extensions}
+
+%% backmatter
+% \include{bibliography}
+\include{colophon}
+\include{backcover}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: t
+%%% End:

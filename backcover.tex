@@ -1,0 +1,24 @@
+\begingroup
+
+\TPGrid{3}{36}
+\textblockorigin{0mm}{0mm}
+\setlength{\parindent}{0mm}
+\setlength{\banderougewidth}{2\TPHorizModule}
+\setlength{\bandeorwidth}{\TPHorizModule}
+\setlength{\gapwidth}{0.75pt}
+\addtolength{\bandeorwidth}{-\gapwidth}
+
+\begin{frame}[plain]
+  \begin{textblock*}{125mm}[0,1](0mm,30\TPVertModule)
+    \textcolor{or}{\rule{\bandeorwidth}{\TPVertModule}}%      % gold stripe
+    \rule{\gapwidth}{0pt}%                                    % gap
+    \textcolor{rouge}{\rule{\banderougewidth}{\TPVertModule}} % red stripe
+  \end{textblock*}
+\end{frame}
+\endgroup
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "ime-2017-workshop-computational-actuarial-science-r"
+%%% End:

@@ -1,0 +1,16 @@
+missfont.log
+
+*.log
+*.aux
+*.out
+*.toc
+*.gz
+*.bbl
+*.blg
+*.lot
+*.lof
+*.bcf
+*.lol
+*.nav
+*.snm
+*.vrb
