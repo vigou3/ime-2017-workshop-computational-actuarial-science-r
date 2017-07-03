@@ -13,12 +13,14 @@
   \usepackage[noae]{Sweave}
   \usepackage[round]{natbib}             % references
   \usepackage{fontawesome}               % various icons
+  \usepackage{awesomebox}                % tipbox et al.
   \usepackage{changepage}                % license page
   \usepackage{listings}                  % source code
   \usepackage{tabularx}                  % license page
   \usepackage{framed}                    % env. leftbar
   \usepackage[overlay,absolute]{textpos} % covers
   \usepackage{metalogo}                  % logo \XeLaTeX
+  \usepackage{bm}                        % bold math for vectors
 
   %% ==================
   %%  Publication info
@@ -33,7 +35,7 @@
   \usetheme{metropolis}
 
   %% Math in sans serif font
-  \usepackage[frenchmath,scaled=1.15]{newtxsf}
+  \usepackage[frenchmath,nosymbolsc,scaled=1.15]{newtxsf}
 
   %% Additionnal colors
   \definecolor{comments}{rgb}{0.7,0,0}      % comments in R code
@@ -44,6 +46,7 @@
   \definecolor{or}{rgb}{1,0.8,0}            % UL yellow stripe
   \colorlet{alert}{mLightBrown} % alias for Metropolis color
   \colorlet{dark}{mDarkTeal}    % alias for Metropolis color
+  \colorlet{shadecolor}{codebg}
 
   %% Hyperlinks
   \hypersetup{%
@@ -63,7 +66,7 @@
   \lstloadlanguages{R}
   \lstset{language=R,
     extendedchars=true,
-    basicstyle=\small\ttfamily\NoAutoSpacing,
+    basicstyle=\small\ttfamily,
     commentstyle=\color{comments}\slshape,
     keywordstyle=\mdseries,
     escapeinside=`',
@@ -106,7 +109,8 @@
   \makeatother
 
   %% Function names, code, arguments et al.
-  \newcommand{\file}[1]{\fbox{\texttt{#1}}}
+  \newcommand{\code}[1]{\texttt{#1}}
+  \newcommand{\file}[1]{\fbox{\code{#1}}}
   \newcommand{\class}[1]{\textbf{#1}}
   \newcommand{\pkg}[1]{\textbf{#1}}
   \newcommand{\link}[2]{\href{#1}{#2~\raisebox{-0.2ex}{\faExternalLink}}}
@@ -121,13 +125,14 @@
   %% Link to R scripts
   \newcommand{\gotoR}[1]{%
     \begin{center}
-      \colorbox{mDarkTeal}{\color{white}
+      \colorbox{dark}{\color{white}
       \makebox[40mm][c]{%
         \makebox[5mm]{\raisebox{-1pt}{\large\faChevronCircleDown}}\;%
         {\ttfamily #1}}}
     \end{center}}
 
   %% Context-specific commands
+  \newcommand{\mat}[1]{\bm{#1}}
   \newcommand{\esp}[1]{E [ #1 ]}
   \newcommand{\VaR}{\ensuremath{\text{VaR}}}
   \newcommand{\TVaR}{\ensuremath{\text{TVaR}}}
@@ -157,9 +162,12 @@
 \include{licence}
 
 %% mainmatter
-% \include{presentation}
-% \include{bases}
-% \include{donnees}
+\part{R programming}
+\frame{\partpage}
+
+\include{presentation}
+\include{fundamentals}
+\include{datatypes}
 % \include{application}
 % \include{controle}
 % \include{extensions}
