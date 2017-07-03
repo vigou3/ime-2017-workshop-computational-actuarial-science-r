@@ -41,18 +41,17 @@ VERSION = $(shell cat VERSION)
 
 ## Ensemble des sources du document.
 RNWFILES = \
-	bases.Rnw \
-	donnees.Rnw
+	presentation.Rnw \
+	fundamentals.Rnw \
+	datatypes.Rnw
 TEXFILES = \
 	frontcover.tex \
 	frontispice.tex \
 	licence.tex \
-	presentation.tex \
 	application.tex \
-	controle.tex \
 	extensions.tex \
 	colophon.tex \
-	couverture-arriere.tex
+	backcover.tex
 
 ## Outils de travail
 SWEAVE = R CMD SWEAVE --encoding="utf-8"
