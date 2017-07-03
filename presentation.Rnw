@@ -1,0 +1,157 @@
+\section{Presentation of R}
+
+\begin{frame}
+  \frametitle{History in brief}
+
+  ``\emph{R is a free software environment for statistical computing and graphics}''
+  \bigskip
+
+  \begin{itemize}
+  \item It all started with S --- mid 1970s at Bell Labs --- John~M.\ Chambers
+  \item Mostly known through the commercial implementation S-PLUS
+  \end{itemize}
+  \bigskip
+
+  \begin{quote}
+    \begin{minipage}{0.35\linewidth}
+      \includegraphics[width=\linewidth,keepaspectratio]{Chambers}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.6\linewidth}
+      \raggedright
+      \textbf{ACM Software System Award 1998} \\
+      \emph{John Chambers --- Langage S} \\[\baselineskip]
+
+      ``\dots\ which has forever altered how people analyse,
+        visualize and manipulate data''
+    \end{minipage}
+  \end{quote}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{History in brief (cont.)}
+
+  \begin{itemize}
+  \item New implementation --- mid 1990s --- \textbf{R}oss Ihaka and
+    \textbf{R}obert Gentleman
+  \item Inspired by Scheme (a Lisp derivative) with S syntax
+\begin{Schunk}
+\begin{lstlisting}[language=lisp]
+(define factorial (lambda (n)
+  (if (= n 1)
+      1
+    (* n (factorial (- n 1))))))
+\end{lstlisting}
+\end{Schunk}
+vs
+\begin{Schunk}
+\begin{lstlisting}
+factorial <- function(n)
+  if (n == 1) 1 else n * factorial(n - 1)
+\end{lstlisting}
+\end{Schunk}
+  \item Free (``GNU S'') and open (CRAN) --- R eventually overpasses S-PLUS
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Overview of the language}
+
+  R is also (foremost?) a complete and autonomous programming language.
+  \begin{itemize}
+  \item Statistical procedures of R programmed in R
+  \item \emph{Interpreted} (by opposition with \emph{compiled}) --- Excel analogy\dots
+  \item Vector-based mathematical language
+    \begin{center}
+      \begin{minipage}{0.48\linewidth}
+        \begin{gather*}
+          \mat{x} = (x_1, \dots, x_n) \\
+          \mat{y} = (y_1, \dots, y_n) \\
+          \langle \mat{x}, \mat{y} \rangle
+          = \sum_{i = 1}^n x_i y_i
+        \end{gather*}
+      \end{minipage}
+      \hfill
+      \begin{minipage}{0.48\linewidth}
+<<echo=TRUE>>=
+x <- c(3, 5, 6)
+y <- c(-1, 2, 0)
+sum(x * y)
+@
+      \end{minipage}
+    \end{center}
+  \item Dynamically typed
+  \item No declaration of variables
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Workflow}
+
+  \begin{itemize}
+  \item \alert{RStudio is not R}
+  \item R basically only a command prompt (\emph{interpreter})
+  \item One \alert{working directory} per R instance
+    \begin{itemize}
+    \item query with \code{getwd()}
+    \item change with \code{setwd(\meta{directory})}
+    \end{itemize}
+  \item Contents of \alert{workspace} saved in working directory
+    \begin{itemize}
+    \item file name \code{.RData} by default
+    \end{itemize}
+  \item Follow the
+    \link{http://ess.r-project.org/Manual/ess.html\#Philosophies-for-using-ESS_0028S_0029}{source
+      code is real, objects are realizations of the source code}
+    philosophy
+    \begin{itemize}
+    \item use script files
+    \item don't save the workspace (most of the time)
+    \end{itemize}
+  \item Programming text editors (e.g.\ GNU Emacs) and integrated
+    development environments (e.g.\ RStudio) ease source code editing
+    and execution
+    \begin{itemize}
+    \item learn the keyboard shorcuts
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Help and documentation}
+
+  \begin{itemize}
+  \item \alert{Read the official help pages}
+  \item Help page for object \texttt{foo} accessed with
+    \begin{Schunk}
+\begin{lstlisting}
+?foo
+\end{lstlisting}
+    \end{Schunk}
+    or
+    \begin{Schunk}
+\begin{lstlisting}
+help(foo)
+\end{lstlisting}
+    \end{Schunk}
+    or through the graphical interfaces
+  \item Search for help on a subject with
+    \begin{Schunk}
+\begin{lstlisting}
+help.search("`\meta{subject}'")
+\end{lstlisting}
+    \end{Schunk}
+  \item Longer documents in PDF or HTML:
+    \begin{Schunk}
+\begin{lstlisting}
+vignette("`\meta{sujet}'")
+\end{lstlisting}
+    \end{Schunk}
+  \end{itemize}
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "ime-2017-workshop-computational-actuarial-science-r"
+%%% End:
