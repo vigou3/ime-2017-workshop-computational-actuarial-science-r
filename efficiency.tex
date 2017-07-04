@@ -1,0 +1,36 @@
+\section{Numerical stability and efficiency}
+
+\begin{frame}
+  \frametitle{R results are wrong!}
+
+  Let's start with some examples of R (apparently) giving erroneous
+  results.
+
+  \gotoR{wrong.R}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fundamental law of floating point arithmetic}
+
+  \begin{quote}
+    1.0 times 0.1 is hardly ever 1 \citep{Kernighan:style:1978}
+  \end{quote}
+\end{frame}
+
+\begin{frame}
+  \frametitle{FAQ of the R FAQ}
+
+  \begin{itemize}
+  \item \link{https://cran.r-project.org/doc/FAQ/R-FAQ.html\#Why-doesn_0027t-R-think-these-numbers-are-equal_003f}{``Why doesn’t R think these numbers are equal?''} \citep[question 7.31]{R-FAQ}
+  \item \link{http://link.springer.com/content/pdf/bbm\%3A978-1-4939-2122-5\%2F1.pdf}{``Computational Precision and Floating-Point Arithmetic''}
+    \citep[Appendix G]{Heiberger:2015:statistical_analysis}
+  \item \link{http://www.validlab.com/goldberg/paper.pdf}{``What Every Computer Scientist Should Know About
+    Floating-Point Arithmetic''} \citep{Goldberg:1991:floating_point}
+  \end{itemize}
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "ime-2017-workshop-computational-actuarial-science-r"
+%%% End:

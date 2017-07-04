@@ -1,0 +1,44 @@
+\section{Mapping functions}
+
+\begin{frame}[fragile]
+  \frametitle{The  \code{apply} family of functions}
+
+  Efficient tools for data reduction and repeated computations.
+
+  \begin{itemize}
+  \item \code{apply} applies a function to margins of a \alert{matrix}
+    or \alert{array}.
+    \begin{Schunk}
+\begin{lstlisting}
+apply(X, MARGIN, FUN, ...)
+\end{lstlisting}
+    \end{Schunk}
+
+  \item \code{tapply} applies a function to each \alert{group of
+      values} given by categories of \alert{factors}.
+    \begin{Schunk}
+\begin{lstlisting}
+tapply(X, INDEX, FUN, ...)
+\end{lstlisting}
+    \end{Schunk}
+    Similar and sometimes easier to use: \code{by}, \code{aggregate}.
+
+  \item \code{lapply} and \code{sapply} apply a function to each
+    element of a \alert{vector} or \alert{list}.
+    \begin{Schunk}
+\begin{lstlisting}
+lapply(X, FUN, ...)
+sapply(X, FUN, ...)
+\end{lstlisting}
+    \end{Schunk}
+    Also in the same family: \code{mapply}.
+  \end{itemize}
+  \pause
+  \gotoR{application.R}
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "ime-2017-workshop-computational-actuarial-science-r"
+%%% End:

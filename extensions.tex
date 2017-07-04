@@ -1,0 +1,60 @@
+\section{Extensions}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Library and packages}
+
+  \begin{itemize}
+  \item Functions, data and documentation distributed as \alert{packages}
+  \item Packages collected into \alert{libraries}
+  \item Standard library of R contains 29 packages, some of which
+    loaded by default at start-up
+  \item Load package in memory with
+    \begin{Schunk}
+\begin{lstlisting}
+library(`\meta{package}')
+\end{lstlisting}
+    \end{Schunk}
+  \item Install new package from
+    \link{https://cran.r-project.org}{CRAN} with
+    \begin{Schunk}
+\begin{lstlisting}
+install.packages(`\meta{package}')
+\end{lstlisting}
+    \end{Schunk}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Personal library}
+
+  I strongly recommend to setup a personal library to install
+  extension packages.
+
+  \begin{enumerate}
+  \item Identify your \verb=~= (\alert{home}) directory with, from R
+    \begin{Schunk}
+\begin{lstlisting}
+> Sys.getenv("HOME")
+\end{lstlisting}
+    \end{Schunk}
+  \item Create a directory within \verb=~=, e.g.
+    \begin{Schunk}
+\begin{lstlisting}
+~/R/library
+\end{lstlisting}
+    \end{Schunk}
+  \item Specify the location of the library in file
+    \verb=~/.Renviron= with a line of the form
+    \begin{Schunk}
+\begin{lstlisting}
+R_LIBS_USER="~/R/library"
+\end{lstlisting}
+    \end{Schunk}
+  \end{enumerate}
+\end{frame}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "ime-2017-workshop-computational-actuarial-science-r"
+%%% End:
