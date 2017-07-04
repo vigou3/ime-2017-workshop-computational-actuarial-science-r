@@ -113,7 +113,7 @@ x$surname
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile=singleslide]
   \frametitle{Data frame}
 
   Storage type the most commonly used in data analysis.
@@ -127,8 +127,22 @@ head(USArrests)
   \item Manipulation as a list or as a matrix
   \item Created with function \code{data.frame}
   \end{itemize}
+\end{frame}
 
-  \gotoR{donnees.R}
+\begin{frame}[fragile]
+  \frametitle{Expression object}
+
+  Storage type used to ``compute on the language''.
+  \begin{itemize}
+  \item Expression object is a special language object containing
+    \alert{parsed}, but \alert{unevaluated} statements
+  \item Statements evaluated when object passed to \code{eval}
+<<echo=TRUE>>=
+e <- expression(2 + 3)
+e
+eval(e)
+@
+  \end{itemize}
 \end{frame}
 
 %%% Local Variables:
