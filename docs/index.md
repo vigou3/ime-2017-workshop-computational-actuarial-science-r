@@ -1,7 +1,7 @@
 ## Presentation
 
 The
-[21<sup>st</sup> International Congress on Insurance: Mathematics and Economics &ndash; IME 2017](https://fam.tuwien.ac.at/events/ime2017/),
+[21<sup>st</sup> International Congress on Insurance: Mathematics and Economics (IME 2017)](https://fam.tuwien.ac.at/events/ime2017/),
 scheduled July 3-5 2017, is one of the largest international meeting
 series in actuarial science. The aim of the conference is *to
 strengthen communication between individuals and groups who produce
@@ -55,4 +55,5 @@ following software installed:
 
 ## Author and speaker
 
-[Vincent Goulet](https://vgoulet.act.ulaval.ca/en/), professor, [École d'actuariat](https://wwwéactéulaval.ca) de l'[Université Laval](https://ulaval.ca).
+[Vincent Goulet](https://vgoulet.act.ulaval.ca/en/),
+professor, [École d'actuariat](https://wwwéactéulaval.ca), [Université Laval](https://ulaval.ca).
