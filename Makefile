@@ -43,13 +43,16 @@ VERSION = $(shell cat VERSION)
 RNWFILES = \
 	presentation.Rnw \
 	fundamentals.Rnw \
-	datatypes.Rnw
+	datatypes.Rnw \
+	floatingpoint.Rnw
 TEXFILES = \
 	frontcover.tex \
 	frontispice.tex \
 	licence.tex \
-	application.tex \
+	control.tex \
+	mapping.tex \
 	extensions.tex \
+	efficiency.tex \
 	colophon.tex \
 	backcover.tex
 

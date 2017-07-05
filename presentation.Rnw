@@ -20,7 +20,7 @@
     \begin{minipage}{0.6\linewidth}
       \raggedright
       \textbf{ACM Software System Award 1998} \\
-      \emph{John Chambers --- Langage S} \\[\baselineskip]
+      \emph{John Chambers --- S language} \\[\baselineskip]
 
       ``\dots\ which has forever altered how people analyse,
         visualize and manipulate data''
@@ -89,7 +89,7 @@ sum(x * y)
   \frametitle{Workflow}
 
   \begin{itemize}
-  \item \alert{RStudio is not R}
+  \item RStudio is not R
   \item R basically only a command prompt (\emph{interpreter})
   \item One \alert{working directory} per R instance
     \begin{itemize}

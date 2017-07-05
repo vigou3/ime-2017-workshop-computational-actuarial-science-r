@@ -44,22 +44,6 @@
 \end{frame}
 
 \begin{frame}[fragile=singleslide]
-  \frametitle{Vectors (cont.)}
-
-  \begin{itemize}
-  \item Possible to name (label) the elements
-<<echo=TRUE>>=
-(v <- c(a = 1, b = 2, c = 5))
-@
-  \item Indexing with square brackets \verb=[ ]=
-<<echo=TRUE>>=
-v[3]
-v["c"]
-@
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile=singleslide]
   \frametitle{Vector arithmetic}
 
   One of the great strengths of R.
@@ -90,6 +74,7 @@ c(1, 1, 4, 4) + c(1, 2)
     \item functions allowed in argument of a function
     \item function can return a function
     \item user may define new functions
+    \item anonymous functions
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -106,7 +91,7 @@ c(1, 1, 4, 4) + c(1, 2)
     \end{Schunk}
     \begin{itemize}
     \item \meta{fun} name of the function
-    \item \meta{arguments} list of comma-separated arguments
+    \item \meta{arguments} comma-separated list of formal arguments
     \item \meta{statement} body of the function, single statement or
       group of statements delimited by braces \verb={ }=
     \end{itemize}
@@ -133,13 +118,15 @@ c(1, 1, 4, 4) + c(1, 2)
       \begin{picture}(50,32)
         \put(10,0){\framebox(40,25)[tl]{
             \begin{minipage}{35\unitlength}
-              \rule{0mm}{2ex} % increase distance from frame
+              \rule{0mm}{2ex}% increase distance from frame
               Evaluation frame \\[6pt]
+              \small
               (\meta{symbol}, \meta{value}) \\
               (\meta{symbol}, \meta{value}) \\
               $\vdots$
             \end{minipage}}}
         \put(10,20){\line(-1,0){8}}
+        \put(10,20){\circle*{0.8}}
         \put(2,20){\vector(0,1){7}}
         \put(0,29){parent environment}
       \end{picture}
@@ -174,103 +161,37 @@ search()
 \end{frame}
 
 \begin{frame}[fragile=singleslide]
-  \frametitle{Conditional execution}
+  \frametitle{Dot-dot-dot}
 
-  \begin{minipage}{\linewidth}
-    \begin{minipage}[t]{0.48\linewidth}
-      \begin{Schunk}
-\begin{lstlisting}
-if (`\meta{condition}')
-    `\meta{consequence}'
-\end{lstlisting}
-      \end{Schunk}
-    \end{minipage}
-    \begin{minipage}[t]{0.48\linewidth}
-      \begin{Schunk}
-\begin{lstlisting}
-if (`\meta{condition}')
-    `\meta{consequence}'
-else
-    `\meta{alternative}'
-\end{lstlisting}
-      \end{Schunk}
-    \end{minipage} \\
-    \mbox{}
-  \end{minipage}
+  Functions may use `\code{...}' as formal argument.
   \begin{itemize}
-  \item \meta{condition} statement evaluating to \alert{unique} value
-    \texttt{TRUE} or \texttt{FALSE}
-    \begin{itemize}
-    \item useful: \verb=all=, \verb=any=,
-      \verb=isTRUE=, \dots
-    \item useless: \verb|if (TRUE == TRUE)|
-    \end{itemize}
-  \item \meta{consequence} statement, or group of statement to execute
-    when condition is \texttt{TRUE}
-  \item \meta{alternative} statement, or group of statement to execute
-    when condition is \texttt{FALSE}
+  \item Number of arguments of the function thereby arbitrary
+  \item Any argument not matched by other formal arguments matched
+    by `\code{...}'
+  \item Contents of `\code{...}' may be captured in a list with
+    \begin{Schunk}
+\begin{lstlisting}
+list(...)
+\end{lstlisting}
+    \end{Schunk}
+  \item Usually passed unchanged to another function
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Repeated execution}
+\begin{frame}[fragile]
+  \frametitle{Anonymous function}
 
-  \tipbox{
-    \begin{itemize}
-    \item First try to vectorize calculations
-    \item Use functions
-      \begin{itemize}
-      \item \texttt{outer}
-      \item \texttt{apply}
-      \item \texttt{tapply}
-      \item \texttt{lapply}, \texttt{sapply}
-      \item \texttt{mapply}
-      \end{itemize}
-    \end{itemize}}
-\end{frame}
-
-\begin{frame}[fragile=singleslide]
-  \frametitle{Three types of loops}
-
-  Number of repetitions known.
-  \begin{Schunk}
-\begin{lstlisting}
-for (`\meta{variable}' in `\meta{sequence}')
-    `\meta{statement}'
-\end{lstlisting}
-  \end{Schunk}
-
-  Number of repetitions unknown, maybe never executed.
-  \begin{Schunk}
-\begin{lstlisting}
-while (`\meta{condition}')
-    `\meta{statement}'
-\end{lstlisting}
-  \end{Schunk}
-
-  Number of repetitions unknown, executed at least once.
-  \begin{Schunk}
-\begin{lstlisting}
-repeat
-    `\meta{statement}'
-\end{lstlisting}
-  \end{Schunk}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Flow control}
-
+  Function without a name.
   \begin{itemize}
-  \item \texttt{break} causes exit from innermost loop
-  \item \texttt{next} forces execution of the next iteration of
-    the loop
-  \item \texttt{stop()} forces exit from function with error message
-  \item \texttt{warning()} forces exit from function with warning
-  \item \texttt{return()} forces exit from function with value
+  \item For short, throw-away functions passed in argument to another function
+<<echo=TRUE>>=
+f <- function(x, FUN) x * FUN(x)
+f(2, function(x) x * x)
+@
   \end{itemize}
 
   \pause
-  \gotoR{fundamentals.R}
+  \gotoR{fundamentals}
 \end{frame}
 
 %%% Local Variables:

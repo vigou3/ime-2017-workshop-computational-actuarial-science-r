@@ -1,7 +1,5 @@
 \section{Elements of floating point arithmetic}
 
-%% Numerical stability and efficiency
-
 \begin{frame}
   \frametitle{R results are wrong!}
 
@@ -45,8 +43,8 @@
     E &\in \{0, 1, \dots, 2^{11} - 1\}_2 && \text{(11 bits for the exponent)} \\
     F &\in \{0, 1, \dots, 2^{52} - 1\}_2 && \text{(52 bits for the mantissa)}
   \end{align*}
-  \vfill\footnotesize
-  (\link{https://en.wikipedia.org/wiki/IEEE_754}{IEEE Standard for Floating-Point Arithmetic (IEEE 754)})
+  \vfill\small
+  \link{https://en.wikipedia.org/wiki/IEEE_754}{IEEE Standard for Floating-Point Arithmetic (IEEE 754)}
 \end{frame}
 
 \begin{frame}
@@ -92,7 +90,7 @@
   \item Set of representable numbers more dense for small values than
     for large ones:
     \begin{align*}
-      x_{\text{min}}^+ - x_{\text{min}}^+
+      x_{\text{min}}^+ - x_{\text{min}}
       &= 2^{-1074} \approx 10^{-324} \\
       x_{\text{max}} - x_{\text{max}}^-
       &= 2^{971} \approx 10^{292}
@@ -100,11 +98,97 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile=singleslide]
   \frametitle{Obtaining these values in R}
 
-
+<<echo=TRUE>>=
+.Machine[c(1, 3:6, 11)]
+@
 \end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \frametitle{Lesson learned: testing equality}
+
+  \begin{itemize}
+  \item Do \alert{not} test equality between computed numbers in R
+    with \verb|==|
+  \item Function \code{all.equal} is your friend
+    \begin{Schunk}
+\begin{lstlisting}
+all.equal(target, current,
+          tolerance = .Machine$double.eps ^ 0.5, scale = NULL,
+          ..., check.attributes = TRUE)
+\end{lstlisting} %$
+    \end{Schunk}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Additional tips}
+
+  \begin{itemize}
+  \item<1-> Rules of arithmetic do not apply in floating point!
+    \begin{itemize}
+    \item order of operations matter
+    \item magnitude of numbers matter
+    \end{itemize}
+  \item<2-> Relative cost of operations
+    \begin{itemize}
+    \item[]
+      \begin{tabular}{lr}
+        Addition and subtraction & 1.0 \\
+        Multiplication           & 1.3 \\
+        Division                 & 3.0 \\
+        Square root              & 4.0 \\
+        Logarithm                & 15.4 \\
+      \end{tabular}
+    \end{itemize}
+  \item<3-> Log scale is your friend
+    \begin{itemize}
+    \item $xy$ overflows later if computed as $e^{\log x + \log y}$
+    \item R provides \code{log1p} to compute $\log(1 + x)$ and
+      \code{expm1} to compute $e^x - 1$ accurately for small $x$.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Good practices}
+  \begin{columns}
+    \begin{column}{5cm}
+      Instead of doing\dots
+      \begin{Schunk}
+      \begin{verbatim}
+x^(1/2)
+
+x^(1/5)
+
+(1/k) * x
+
+sum(x/k)
+      \end{verbatim}
+      \end{Schunk}
+    \end{column}
+    \begin{column}{5cm}
+      \dots\ rather do
+      \begin{Schunk}
+      \begin{verbatim}
+sqrt(x)
+
+x^0.2
+
+x/k
+
+sum(x)/k
+      \end{verbatim}
+      \end{Schunk}
+    \end{column}
+  \end{columns}
+
+  \pause
+  \gotoR{floatingpoint.R}
+\end{frame}
+
 
 %%% Local Variables:
 %%% mode: latex
