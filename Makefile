@@ -25,12 +25,13 @@ ARCHIVE = ime-2017-workshop-computational-actuarial-science-r.zip
 SLIDES = ime-2017-workshop-computational-actuarial-science-r.pdf
 README = README.md
 SCRIPTS = \
-	presentation.R \
-	bases.R \
-	donnees.R \
-	application.R \
-	controle.R \
+	fundamentals.R \
+	mapping.R \
+	control.R \
 	extensions.R \
+	wrong.R \
+	floatingpoint.R \
+	speed.R \
 DATA = \
 
 ## Temporary directory to build archive
