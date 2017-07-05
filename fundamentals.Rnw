@@ -189,9 +189,24 @@ f <- function(x, FUN) x * FUN(x)
 f(2, function(x) x * x)
 @
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Learning more}
+
+  \begin{itemize}
+  \item Original article of \citet{Ihaka:R:1996} introducing R:
+    both fascinating and very accessible
+  \item Classic by \citet{MASS}: companion of the \pkg{MASS}
+    package (or is it the other way around?)
+  \item Another classic by \cite{Sussman:scheme:1996}: to learn more
+    about functional programming in general and Scheme in particular
+  \item \cite{Braun:Rprogramming:2e:2016}: another take on R
+    programming
+  \end{itemize}
 
   \pause
-  \gotoR{fundamentals}
+  \gotoR{fundamentals.R}
 \end{frame}
 
 %%% Local Variables:
