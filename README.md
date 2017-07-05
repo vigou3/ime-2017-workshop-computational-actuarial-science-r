@@ -1,7 +1,7 @@
 > This is the `README.md` included with the documentation of the
 > workshop *Computational actuarial science with R* of
 > the
-> [21<sup>st</sup> International Congress on Insurance: Mathematics and Economics &ndash; IME 2017](https://fam.tuwien.ac.at/events/ime2017/),
+> [21<sup>st</sup> International Congress on Insurance: Mathematics and Economics (IME 2017)](https://fam.tuwien.ac.at/events/ime2017/),
 >
 > The [project page](https://vigou3.github.io/ime-2017-workshop-computational-actuarial-science-r)
 > provides more details on the workshop.
