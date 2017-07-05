@@ -102,11 +102,12 @@ unlist(lapply(1:10, seq))  # conversion to vector
 ## sizes.
 ##
 ## The statement below takes advantage of argument '...' of 'lapply'.
-## Given that the definition of function 'sample' is
+## The definition of function 'sample' is
 ##
 ##   sample(x, size, replace = FALSE, prob = NULL)
 ##
-## can you decipher the statement?
+## Try to decipher the statement. Otherwise, we only need to evaluate
+## it.
 (x <- lapply(c(8, 12, 10, 9),
              sample,
              x = 1:10, replace = TRUE))
