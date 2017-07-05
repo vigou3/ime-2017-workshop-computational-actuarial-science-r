@@ -1,5 +1,5 @@
 ### -*-Makefile-*- to prepare "Computational actuarial science with R
-### IME 2017 Workshop"
+### - IME 2017 Workshop"
 ##
 ## Copyright (C) 2017 Vincent Goulet
 ##
@@ -33,6 +33,8 @@ SCRIPTS = \
 	floatingpoint.R \
 	speed.R \
 DATA = \
+OTHER = \
+	LICENSE
 
 ## Temporary directory to build archive
 TMPDIR = tmpdir
@@ -53,7 +55,7 @@ TEXFILES = \
 	control.tex \
 	mapping.tex \
 	extensions.tex \
-	efficiency.tex \
+	speed.tex \
 	colophon.tex \
 	backcover.tex
 
@@ -79,14 +81,14 @@ release: create-release upload publish
 ${SLIDES}: ${SLIDES:.pdf=.tex} ${RNWFILES:.Rnw=.tex} ${TEXFILES}
 	${TEXI2DVI} ${SLIDES:.pdf=.tex}
 
-zip: ${SLIDES} ${SCRIPTS} ${DATA} ${README}
+zip: ${SLIDES} ${README} ${SCRIPTS} ${DATA} ${OTHER}
 	if [ -d ${TMPDIR} ]; then ${RM} ${TMPDIR}; fi
 	mkdir -p ${TMPDIR} ${TMPDIR}/data
 	touch ${TMPDIR}/${README} && \
 	  awk 'state==0 && /^# / { state=1 }; \
 	       /^## Author/ { printf("## Version\n\n%s\n\n", "${VERSION}") } \
 	       state' ${README} >> ${TMPDIR}/${README}
-	cp ${SLIDES} ${SCRIPTS} ${DATA} ${TMPDIR}
+	cp ${SLIDES} ${SCRIPTS} ${DATA} ${OTHER} ${TMPDIR}
 	cd ${TMPDIR} && zip --filesync -r ../${ARCHIVE} *
 	${RM} ${TMPDIR}
 

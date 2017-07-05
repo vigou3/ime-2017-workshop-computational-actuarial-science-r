@@ -1,0 +1,87 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// I prefer the layout of the Cayman theme, but the colors of Slate.
+
+body {
+  color: #23373b;
+  font-family: "Fira Sans", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: #eb811b;
+}
+
+.btn {
+  color: rgba(35, 55, 59, 0.8);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(35, 55, 59, 0.8);
+
+  &:hover {
+    color: rgba(35, 55, 59, 0.9);
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(35, 55, 59, 0.9);
+  }
+}
+
+.page-header {
+  color: #23373b;
+  background: #D1DBF2;
+  background-image: url('../../images/Fotolia_99831160.jpg');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+
+  @include large {
+    padding: 8rem 6rem 2rem 6rem;
+  }
+
+  @include medium {
+    padding: 6rem 4rem 2rem 4rem;
+  }
+
+  @include small {
+    padding: 2.5rem 1rem 1.5rem 1rem;
+  }
+}
+
+.shaded {
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.5);
+
+  @include large {
+    max-width: 52rem;
+  }
+}
+
+.project-name {
+  font-weight: 400;
+}
+
+.project-tagline {
+  margin-top: 0rem;
+  font-size: 1.75rem;
+  font-weight: 300;
+  opacity: 1.0;
+}
+
+.site-footer-owner {
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 400;
+}    
+
+.main-content {
+  h1, h2, h3, h4, h5, h6 {
+    color: #23373b;
+  }
+}
