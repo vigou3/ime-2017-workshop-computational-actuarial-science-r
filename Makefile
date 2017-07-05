@@ -42,7 +42,7 @@ TMPDIR = tmpdir
 ## Version number
 VERSION = $(shell cat VERSION)
 
-## Ensemble des sources du document.
+## Sources of the document
 RNWFILES = \
 	presentation.Rnw \
 	fundamentals.Rnw \
@@ -59,10 +59,14 @@ TEXFILES = \
 	colophon.tex \
 	backcover.tex
 
-## Outils de travail
+## Toolset
 SWEAVE = R CMD SWEAVE --encoding="utf-8"
 TEXI2DVI = LATEX=xelatex texi2dvi -b
 RM = rm -rf
+
+## GitHub repository and authentication
+REPOSURL = https://api.github.com/repos/vigou3/ime-2017-workshop-computational-actuarial-science-r
+OAUTHTOKEN = $(shell cat ~/.github/token)
 
 
 all: pdf
