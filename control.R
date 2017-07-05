@@ -52,10 +52,10 @@ f(c(5, 10, 20), 5)
 ## 1. Set a starting value x[0].
 ## 2. For n = 1, 2, 3, ...
 ##    2.1 Compute x[n] = f(x[n - 1])
-##    2.2 If |x[n] - x[n - 1]|/|x[n]| < TOL, goto step 3.
+##    2.2 If |x[n] - x[n - 1]|/|x[n]| < TOL, go to step 3.
 ## 3. Return the value x[n].
 
-## As a first, simple, illustration we assume we need to
+## As a first simple illustration, we assume we need to
 ## compute the square root of a number x, that is the positive
 ## value y such that y^2 = x. Written in fixed-point form, we
 ## have:
@@ -92,7 +92,7 @@ sqrt(3047, 50)
 ## rewrite the function for each and every equation we want to
 ## solve! Upon close inspection, we see that the only thing
 ## that would change, though, is the evaluation of the
-## function f(x) for which we search the fised-point.
+## function f(x) for which we search the fixed-point.
 ##
 ## Using functional programming, let us just write a general
 ## fixed-point function that takes f(x) in argument.
@@ -109,8 +109,8 @@ fixed_point <- function(FUN, start, TOL = 1E-10)
 }
 
 ## We may then rewrite our 'sqrt' function to use
-## 'fixed_point'. While we're at it, we add an argument
-## validity test to the function, for good measure.
+## 'fixed_point'. For good measure, we add an argument
+## validity test to the function.
 sqrt <- function(x)
 {
     if (x < 0)
