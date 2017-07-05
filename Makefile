@@ -31,8 +31,8 @@ SCRIPTS = \
 	extensions.R \
 	wrong.R \
 	floatingpoint.R \
-	speed.R \
-DATA = \
+	speed.R 
+DATA = 
 OTHER = \
 	LICENSE
 
@@ -73,7 +73,7 @@ pdf: ${SLIDES}
 
 tex: ${RNWFILES:.Rnw=.tex}
 
-release: create-release upload publish
+release: zip create-release upload publish
 
 %.tex: %.Rnw
 	${SWEAVE} '$<'
