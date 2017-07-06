@@ -19,7 +19,7 @@
 ## distribution function
 ##
 ##   F(x; m, a) = 1 - (m/x)^a, x > m.
-##
+
 ## We can show that the maximum likelihood estimation (MLE) of
 ## parameter 'a' is
 ##
