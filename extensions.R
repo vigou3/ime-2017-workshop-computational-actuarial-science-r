@@ -29,7 +29,7 @@ search()
 
 ## Installing a package from the austrian mirror of CRAN
 ## (replace with closest mirror for your country).
-install.packages(actuar, repos = "http://cran.at.r-project.org")
+install.packages("actuar", repos = "http://cran.at.r-project.org")
 
 ## Installing a package does not load it in the R session. We
 ## have to load it with 'library' afterwards.
