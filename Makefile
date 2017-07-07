@@ -31,10 +31,10 @@ SCRIPTS = \
 	extensions.R \
 	wrong.R \
 	floatingpoint.R \
-	speed.R 
-DATA = 
-OTHER = \
-	LICENSE
+	speed.R \
+	casestudy.R 
+DATA = Inventory.csv
+OTHER = LICENSE
 
 ## Temporary directory to build archive
 TMPDIR = tmpdir
@@ -56,6 +56,8 @@ TEXFILES = \
 	mapping.tex \
 	extensions.tex \
 	speed.tex \
+	casestudy.tex \
+	literate.tex \
 	colophon.tex \
 	backcover.tex
 
