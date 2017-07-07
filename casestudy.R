@@ -233,7 +233,7 @@ call
 ##
 ## The results are 'nb.simul' simulated total claim amounts
 ## for each of 'nb.clients' clients.
-Si <- replicate(nb.clients, eval(expr))
+Si <- replicate(nb.clients, eval(call))
 
 ## Average total claim amount in the portfolio.
 W <- rowSums(Si)/nb.clients
