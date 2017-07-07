@@ -44,12 +44,18 @@ Vincent Goulet <vincent.goulet@act.ulaval.ca>
 - `ime-2017-workshop-computational-actuarial-science-r.pdf`: slides of
   the workshop;
 - `*.R`: script files for demonstrations;
+- `Inventory.csv`: data set for the case study.
 
 ## Source code
 
 [View in GitHub](http://github.com/vigou3/ime-2017-workshop-computational-actuarial-science-r/)
 
 ## Release notes
+
+### 2.0 (2017-07-07)
+
+- Material for the second part, the case study, is now part of the release.
+- Fixed display of indication to go to `extensions.R`.
 
 ### 1.0 (2017-07-06)
 
