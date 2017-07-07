@@ -89,7 +89,7 @@ ${SLIDES}: ${SLIDES:.pdf=.tex} ${RNWFILES:.Rnw=.tex} ${TEXFILES}
 
 zip: ${SLIDES} ${README} ${SCRIPTS} ${DATA} ${OTHER}
 	if [ -d ${TMPDIR} ]; then ${RM} ${TMPDIR}; fi
-	mkdir -p ${TMPDIR} ${TMPDIR}/data
+	mkdir -p ${TMPDIR}
 	touch ${TMPDIR}/${README} && \
 	  awk 'state==0 && /^# / { state=1 }; \
 	       /^## Author/ { printf("## Version\n\n%s\n\n", "${VERSION}") } \
