@@ -18,6 +18,7 @@
   \usepackage{listings}                  % source code
   \usepackage{tabularx}                  % license page
   \usepackage{framed}                    % env. leftbar
+  \usepackage[export]{adjustbox}         % frame around image
   \usepackage[overlay,absolute]{textpos} % covers
   \usepackage{metalogo}                  % logo \XeLaTeX
   \usepackage{bm}                        % bold math for vectors
@@ -108,6 +109,12 @@
   }{\par\unskip\@minipagefalse\endMakeFramed}
   \makeatother
 
+  %% Theorem-like environments
+  \theoremstyle{plain}
+  \newtheorem{assumption}{Assumption}
+  \theoremstyle{definition}
+  \newtheorem{consequence}{Consequence}
+
   %% Function names, code, arguments et al.
   \newcommand{\code}[1]{\texttt{#1}}
   \newcommand{\file}[1]{\fbox{\code{#1}}}
@@ -172,6 +179,12 @@
 \include{extensions}
 \include{floatingpoint}
 \include{speed}
+
+\part{Case study}
+\frame{\partpage}
+
+\include{casestudy}
+\include{literate}
 
 %% backmatter
 \include{bibliography}

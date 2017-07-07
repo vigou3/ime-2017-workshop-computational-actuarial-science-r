@@ -1,0 +1,119 @@
+\section{Pricing of individual objects}
+
+\begin{frame}
+  \frametitle{Inspiration}
+
+  \begin{center}
+    \includegraphics[width=0.8\linewidth,keepaspectratio,frame]{ime-2017-insurance-of-things} \\
+    \link{https://github.com/vigou3/ime-2017-insurance-of-things/releases/tag/v1.0}{Slides
+      available on GitHub}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Different types of peril}
+
+  \begin{assumption}
+    Claims due to three main types of peril:
+    \begin{enumerate}
+    \item accidental damage, theft, vandalism; \alert{few} items affected ($<$ 10 on average)
+    \item fire; \alert{100\%} of items affected
+    \item flooding, water damage, sewer backup; \alert{25\%} of items
+      affected
+    \end{enumerate}
+  \end{assumption}
+  \pause
+
+  \begin{consequence}
+    Aggregate claim amount for insured $i = 1, \dots, n$ for one period:
+    \begin{equation*}
+      S_i = S_i^\bris + S_i^\feu + S_i^\eau
+    \end{equation*}
+  \end{consequence}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Dependence -- Step I}
+
+  \begin{assumption}
+    Aggregate claim amount for a given type of peril is compound Poisson:
+    \begin{equation*}
+      S_i^\DOT = X_{i1}^\DOT + \dots + X_{iN_i^\DOT}^\DOT
+      \sim \text{Compound Poisson}(\lambda^\DOT, F^\DOT)
+    \end{equation*}
+  \end{assumption}
+  \pause
+
+  \begin{consequence}
+    Aggregate claim amount for insured $i$ is compound Poisson:
+    \begin{equation*}
+      S_i = S_i^\bris + S_i^\feu + S_i^\eau \sim
+      \text{Compound Poisson}(\lambda, F),
+    \end{equation*}
+    with
+    \begin{align*}
+      \lambda &= \lambda^\bris + \lambda^\feu + \lambda^\eau \\
+      F(x) &= \frac{\lambda^\bris F^\bris(x) + \lambda^\feu F^\feu(x) +
+               \lambda^\eau F^\eau(x)}{\lambda}
+      \end{align*}
+  \end{consequence}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Dependence -- Step II}
+
+  \begin{assumption}
+    Amount of single claim is
+    \begin{equation*}
+      X_{ij}^\DOT = V_1 + ... + V_{M_{ij}^\DOT},
+    \end{equation*}
+    where
+    \begin{itemize}
+    \item $M^\DOT$ is the number of items affected (strictly
+      positive discrete distribution)
+    \item $V$ is the value of an item (i.i.d.)
+    \end{itemize}
+  \end{assumption}
+  \pause
+
+  \begin{consequence}
+    $X_{ij}^\DOT$ is a compound zero-truncated
+  \end{consequence}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Parametrization}
+
+  We need to determine the following elements from judgment, expert
+  opinion or collateral data:
+  \begin{itemize}
+  \item Poisson parameters $\lambda^\bris$, $\lambda^\feu$ and
+    $\lambda^\eau$ for the number of claims by type of peril
+  \item Zero-truncated distributions of the number of items affected
+    per type of peril
+  \item Market value of an item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pricing}
+
+  \begin{itemize}
+  \item Average aggregate claim amount in portfolio:
+    \begin{equation*}
+      W = \frac{S_1 + \dots + S_n}{n}
+    \end{equation*}
+  \item<2-> Pure premium: $\esp{W}$
+  \item<3-> Premium with safety loading:
+    \begin{equation*}
+      \pi = \TVaR_\alpha(W) = \esp{W|W > \VaR_\alpha(W)}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: "ime-2017-workshop-computational-actuarial-science-r"
+%%% End:

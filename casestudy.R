@@ -195,7 +195,7 @@ hist(mv[mv < 500],
 ###
 
 ## Parameters for the simulation.
-nb.sim <- 10000            # number of simulations
+nb.sim <- 100000           # number of simulations
 nb.clients <- 100          # number of clients
 
 ## We first write an expression to simulate 'nb.sim' variates
@@ -233,16 +233,16 @@ call
 ##
 ## The results are 'nb.simul' simulated total claim amounts
 ## for each of 'nb.clients' clients.
-Sk <- replicate(nb.clients, eval(expr))
+Si <- replicate(nb.clients, eval(expr))
 
 ## Average total claim amount in the portfolio.
-Wk <- rowSums(Sk)/nb.clients
+W <- rowSums(Si)/nb.clients
 
 ## Pure premium.
-mean(Wk)
+mean(W)
 
 ## Premium with safety loading.
 level <- 0.9
-(VaR.Wk <- quantile(Wk, level)) # VaR(W)
-w <- which(Wk > VaR.Wk)         # values Wk > var
-(TVaR.Wk <- mean(Wk[w]))        # TVaR(Wk)
+(VaR.W <- quantile(W, level)) # VaR(W)
+w <- which(W > VaR.W)         # values Wk > var
+(TVaR.W <- mean(W[w]))        # TVaR(Wk)
