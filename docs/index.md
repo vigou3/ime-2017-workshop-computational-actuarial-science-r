@@ -16,7 +16,7 @@ of R for quantitative risk analysis.
 
 ## Version
 
-1.0 ([release notes]({{ site.github.repository_url }}/releases/tag/v1.0/))
+2.0 ([release notes]({{ site.github.repository_url }}/releases/tag/v2.0/))
 
 ## Topics covered
 
@@ -33,7 +33,11 @@ of R for quantitative risk analysis.
 
 ### Part 2: Case study
 
-- *Contents to be announced*
+- Data import
+- Data selection and subsetting
+- Modeling using maximum likelihood estimation
+- Simulation of compound models and discrete mixtures
+- Computation of the value-at-risk and tail value-at-risk
 
 ## Requirements
 
@@ -50,7 +54,7 @@ following software installed:
   or [RStudio](https://www.rstudio.com/products/RStudio/);
 
 - the workshop
-  [documentation]({{ site.github.releases_url }}/download/v1.0/ime-2017-workshop-computational-actuarial-science-r.zip) (uncompress the `.zip` archive in any directory).
+  [documentation]({{ site.github.releases_url }}/download/v2.0/ime-2017-workshop-computational-actuarial-science-r.zip) (uncompress the `.zip` archive in any directory).
 
 
 ## Author and speaker
