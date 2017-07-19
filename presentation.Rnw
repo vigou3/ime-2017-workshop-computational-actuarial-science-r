@@ -38,9 +38,9 @@
 \begin{Schunk}
 \begin{lstlisting}[language=lisp]
 (define factorial (lambda (n)
-  (if (= n 1)
+  (if (n = 1)
       1
-    (* n (factorial (- n 1))))))
+    (* n (factorial (n - 1))))))
 \end{lstlisting}
 \end{Schunk}
 vs
@@ -144,7 +144,7 @@ help.search("`\meta{subject}'")
   \item Longer documents in PDF or HTML:
     \begin{Schunk}
 \begin{lstlisting}
-vignette("`\meta{sujet}'")
+vignette("`\meta{subject}'")
 \end{lstlisting}
     \end{Schunk}
   \end{itemize}
