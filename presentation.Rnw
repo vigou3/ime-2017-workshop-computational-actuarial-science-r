@@ -144,7 +144,7 @@ help.search("`\meta{subject}'")
   \item Longer documents in PDF or HTML:
     \begin{Schunk}
 \begin{lstlisting}
-vignette("`\meta{sujet}'")
+vignette("`\meta{subject}'")
 \end{lstlisting}
     \end{Schunk}
   \end{itemize}
