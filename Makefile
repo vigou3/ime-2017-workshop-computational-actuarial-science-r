@@ -104,7 +104,7 @@ create-release:
 	    echo "uncommitted changes in repository; not creating release"; exit 2; fi
 	@if [ -n "$(shell git log origin/master..HEAD)" ]; then \
 	    echo "unpushed commits in repository; pushing to origin"; \
-	     fi
+	    git push; fi
 	if [ -e relnotes.in ]; then rm relnotes.in; fi
 	touch relnotes.in
 	awk 'BEGIN { ORS=" "; print "{\"tag_name\": \"v${VERSION}\"," } \
