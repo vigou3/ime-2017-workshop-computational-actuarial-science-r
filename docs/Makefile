@@ -25,8 +25,8 @@ update-pages:
 	       /{{ site.github.releases_url }}/ { $$3 = "v${VERSION}" } 1' \
 	       default.html > tmpfile && \
 	  mv tmpfile default.html
-	# git commit index.md _layouts/default.html \
-	#     -m "Updated web page for version ${VERSION}" && \
-	#   git push
+	git commit index.md _layouts/default.html \
+	     -m "Updated web page for version ${VERSION}" && \
+	   git push
 
 
