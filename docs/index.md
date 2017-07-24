@@ -16,7 +16,7 @@ of R for quantitative risk analysis.
 
 ## Version
 
-2.0 ([release notes]({{ site.github.repository_url }}/releases/tag/v2.0/))
+2.1 ([release notes]({{ site.github.repository_url }}/releases/tag/v2.1/))
 
 ## Topics covered
 
@@ -54,7 +54,7 @@ following software installed:
   or [RStudio](https://www.rstudio.com/products/RStudio/);
 
 - the workshop
-  [documentation]({{ site.github.releases_url }}/download/v2.0/ime-2017-workshop-computational-actuarial-science-r.zip) (uncompress the `.zip` archive in any directory).
+  [documentation]({{ site.github.releases_url }}/download/v2.1/ime-2017-workshop-computational-actuarial-science-r.zip) (uncompress the `.zip` archive in any directory).
 
 
 ## Author and speaker
