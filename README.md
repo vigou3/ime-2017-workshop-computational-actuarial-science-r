@@ -52,6 +52,12 @@ Vincent Goulet <vincent.goulet@act.ulaval.ca>
 
 ## Release notes
 
+### 2.1 (2017-07-24)
+
+- Various typos fixed; thanks to Lukas Fabrykowski and David
+  Beauchemin.
+- Some files were missing in the repository; no effect on the archive.
+
 ### 2.0 (2017-07-07)
 
 - Material for the second part, the case study, is now part of the release.
